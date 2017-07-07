@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Mail API Test Page</title>
+<title>Insert title here</title>
 </head>
 <body>
-<input type="button" name="startTest">
+
 </body>
 </html>
