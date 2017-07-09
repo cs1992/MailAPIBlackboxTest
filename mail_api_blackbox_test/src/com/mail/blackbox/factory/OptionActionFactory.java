@@ -1,5 +1,5 @@
 package com.mail.blackbox.factory;
 
-public class OptionFactory {
+public class OptionActionFactory {
 
 }
