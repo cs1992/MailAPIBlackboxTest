@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.mail.blackbox.dto.Param;
 
-public class OptionPop3Param extends Param {
+public class OptionPop3GetParam extends Param {
 	private ArrayList<Param> extPop3OptionList;
 	private ArrayList<Param> folderList;
 

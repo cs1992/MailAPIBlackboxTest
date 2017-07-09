@@ -2,7 +2,7 @@ package com.mail.blackbox.option.dto;
 
 import com.mail.blackbox.dto.Param;
 
-public class OptionShortCutParam extends Param  {
+public class OptionShortCutGetParam extends Param  {
 	private Param shorCut;
 
 	public Param getShorCut() {

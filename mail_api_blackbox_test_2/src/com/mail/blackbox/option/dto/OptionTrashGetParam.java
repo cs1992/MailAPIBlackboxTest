@@ -2,6 +2,6 @@ package com.mail.blackbox.option.dto;
 
 import com.mail.blackbox.dto.Param;
 
-public class OptionReadParam extends Param  {
+public class OptionTrashGetParam extends Param  {
 
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.mail.blackbox.dto.Param;
 
-public class OptionRejectAddressParam extends Param {
+public class OptionRejectAddressGetParam extends Param {
 	private ArrayList<Param> domainList;
 	private ArrayList<Param> mailList;
 

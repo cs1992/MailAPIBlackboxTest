@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.mail.blackbox.dto.Param;
 
-public class OptionQuickReplyParam extends Param  {
+public class OptionQuickReplyGetParam extends Param  {
 	private ArrayList<Param> quickReplyList;
 
 	public ArrayList<Param> getQuickReplyList() {

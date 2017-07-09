@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import com.fasterxml.jackson.core.JsonParser;
 import com.mail.blackbox.dto.Param;
 
-public class OptionWriteParam extends Param  {
+public class OptionWriteGetParam extends Param  {
 	private ArrayList<Param> fromNameList;
 
 	public ArrayList<Param> getFromNameList() {

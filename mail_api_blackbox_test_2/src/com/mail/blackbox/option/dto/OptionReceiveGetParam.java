@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.mail.blackbox.dto.Param;
 
-public class OptionReceiveParam extends Param {
+public class OptionReceiveGetParam extends Param {
 	private ArrayList<Param> addrList;
 	private ArrayList<Param> mailingList;
 

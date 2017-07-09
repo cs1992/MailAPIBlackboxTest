@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.mail.blackbox.dto.Param;
 
-public class OptionSignParam extends Param {
+public class OptionSignGetParam extends Param {
 	private ArrayList<Param> signList;
 	private ArrayList<Param> signInfoList;
 
