@@ -1,4 +1,4 @@
-package com.mail.blackbox.dto;
+package com.mail.blackbox.model;
 
 import java.util.HashMap;
 

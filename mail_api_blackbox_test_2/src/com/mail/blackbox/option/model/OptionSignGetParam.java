@@ -2,7 +2,7 @@ package com.mail.blackbox.option.model;
 
 import java.util.ArrayList;
 
-import com.mail.blackbox.dto.Param;
+import com.mail.blackbox.model.Param;
 
 public class OptionSignGetParam extends Param {
 	private ArrayList<Param> signList;

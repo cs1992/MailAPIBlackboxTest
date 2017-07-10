@@ -2,7 +2,7 @@ package com.mail.blackbox.option.model;
 
 import java.util.ArrayList;
 
-import com.mail.blackbox.dto.Param;
+import com.mail.blackbox.model.Param;
 
 public class OptionPop3GetParam extends Param {
 	private ArrayList<Param> extPop3OptionList;
