@@ -1,19 +1,57 @@
 package com.mail.blackbox.model;
 
-import java.util.HashMap;
 
-import com.mail.blackbox.util.ConstanceValue.TestResult;
+import com.mail.blackbox.util.ConstanceValue.Reason;
 
 public class Result {
-	private HashMap<String, TestResult> result;
+    private String apiName;
+    private String testName;
+    private String paramName;
+    private Reason reason;
+    private int errorCount;
 
-	public HashMap<String, TestResult> getResult() {
-		return result;
-	}
+    public Result() {
+	
+    }
 
-	public void setResult(HashMap<String, TestResult> result) {
-		this.result = result;
-	}
-	
-	
+    public String getTestName() {
+	return testName;
+    }
+
+    public void setTestName(String testName) {
+	this.testName = testName;
+    }
+
+    public String getParamName() {
+	return paramName;
+    }
+
+    public void setParamName(String paramName) {
+	this.paramName = paramName;
+    }
+
+    public Reason getReason() {
+	return reason;
+    }
+
+    public void setReason(Reason reason) {
+	this.reason = reason;
+    }
+
+    public String getApiName() {
+	return apiName;
+    }
+
+    public void setApiName(String apiName) {
+	this.apiName = apiName;
+    }
+
+    public int getErrorCount() {
+	return errorCount;
+    }
+
+    public void setErrorCount(int errorCount) {
+	this.errorCount = errorCount;
+    }
+
 }
