@@ -1,5 +1,6 @@
 package com.mail.blackbox.option.service;
 
+import java.util.HashSet;
 import java.util.List;
 
 import org.apache.http.NameValuePair;
@@ -7,6 +8,7 @@ import org.apache.http.NameValuePair;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mail.blackbox.model.Param;
 import com.mail.blackbox.model.TestFault;
+import com.mail.blackbox.util.ConstanceValue.TestName;
 import com.mail.blackbox.util.ConstanceValue.TestType;
 
 public interface OptionDefaultTestService extends TestService {
@@ -18,13 +20,12 @@ public interface OptionDefaultTestService extends TestService {
 	
 	void setOption(List<NameValuePair> params);
 	
-	List<TestFault> diffInvalidOption(Param originOption, Param afterOption, String testName, List<NameValuePair> params, TestType testType);
+	void diffOption(Param originOption, Param afterOption, TestName testName, List<NameValuePair> params, TestType testType);
 	
-	List<TestFault> diffValidOption(Param originOption, Param afterOption, String testName, List<NameValuePair> params);
 	
-	List<TestFault> startIntegrationTest();
+	HashSet<TestFault> startIntegrationTest();
 	
-	List<TestFault> singleParamTest();
+	void singleParamTest(TestType testType);
 	
-	List<TestFault> multiParamTest(TestType testType);
+	void multiParamTest(TestType testType);
 }

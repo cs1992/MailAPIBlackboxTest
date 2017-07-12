@@ -1,12 +1,15 @@
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.HashSet"%>
 <%@page import="com.mail.blackbox.util.ConstanceValue"%>
 <%@page import="com.mail.blackbox.model.TestFault"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="EUC-KR"%>
 <%
-    List<TestFault> result = (List<TestFault>) request.getAttribute(ConstanceValue.OPTION_TEST_RESULT_VALUE);
+	HashSet<TestFault> result = (HashSet<TestFault>) request
+			.getAttribute(ConstanceValue.OPTION_TEST_RESULT_VALUE);
 
-    if (result != null) {
+	if (result != null) {
 		int size = result.size();
 		System.out.println(result.size());
 %>
@@ -19,11 +22,12 @@
 <body>
 	<center>
 		<%
-		    for (int i = 0; i < size; i++) {
+			Iterator<TestFault> it = result.iterator();
+				while (it.hasNext()) {
 		%>
-			<%=result.get(i).toString() %><br>
+		<%=it.next().toString()%><br>
 		<%
-				}
+			}
 		%>
 
 	</center>
@@ -33,5 +37,5 @@
 
 
 <%
-    }
+	}
 %>

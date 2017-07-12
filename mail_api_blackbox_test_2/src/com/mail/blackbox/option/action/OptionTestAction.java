@@ -1,5 +1,6 @@
 package com.mail.blackbox.option.action;
 
+import java.util.HashSet;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,17 +15,19 @@ import com.mail.blackbox.util.ConstanceValue;
 
 public class OptionTestAction implements Action {
 
-    @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) {
-	
-	List<TestFault> result = OptionListDefaultTestServiceImpl.getOptionListDefaultTestServiceImpl().startIntegrationTest();
-//	
-//	System.out.println("result size : " + result.size());
-//	System.out.println(Arrays.toString(result.toArray()));
-	
-	request.setAttribute(ConstanceValue.OPTION_TEST_RESULT_VALUE, result);
-	
-	return ConstanceValue.TEST_RESULT;
-    }
+	@Override
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
+
+		HashSet<TestFault> result = OptionListDefaultTestServiceImpl.getOptionListDefaultTestServiceImpl()
+				.startIntegrationTest();
+		
+		//
+		// System.out.println("result size : " + result.size());
+		// System.out.println(Arrays.toString(result.toArray()));
+
+		request.setAttribute(ConstanceValue.OPTION_TEST_RESULT_VALUE, result);
+
+		return ConstanceValue.TEST_RESULT;
+	}
 
 }

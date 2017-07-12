@@ -63,5 +63,41 @@ public class TestFault {
 
 	return str.toString();
     }
+    
+    @Override
+    public int hashCode() {
+    	int hash = 0;
+    	int len = testName.length();
+    	
+    	for(int i = 0; i < len; i++){
+    		hash += testName.charAt(i);
+    	}
+    	
+    	len = paramName.length();
+    	
+    	for(int i = 0; i < len; i++){
+    		hash += paramName.charAt(i);
+    	}
+    	
+    	len = testValue.length();
+    	for(int i = 0; i < len; i++){
+    		hash += testValue.charAt(i);
+    	}
+    	
+    	hash *= 31 + (testName.charAt(0) + paramName.charAt(0) + testValue.charAt(0));
+    	
+    	return hash;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+    	TestFault tf = (TestFault)obj;
+    	
+    	if(testName.equals(tf.testName) && paramName.equals(tf.paramName) && testValue.equals(tf.testValue)){
+    		return true;
+    	} else {
+    		return false;
+    	}
+    }
 
 }

@@ -22,133 +22,125 @@ import org.apache.http.util.EntityUtils;
 
 public class UtilFunction {
 
-    public static List<String> getCommonTestCase() {
-	List<String> testCase = new LinkedList<>();
+	public static List<String> getCommonTestCase() {
+		List<String> testCase = new LinkedList<>();
 
-	testCase.add("");
-	testCase.add(" ");
-	testCase.add(Integer.MAX_VALUE + "");
-	testCase.add(Integer.MIN_VALUE + "");
-	testCase.add(Long.MAX_VALUE + "");
-	testCase.add(Long.MIN_VALUE + "");
+		testCase.add("");
+		testCase.add(" ");
+		testCase.add(Integer.MAX_VALUE + "");
+		testCase.add(Integer.MIN_VALUE + "");
+		testCase.add(Long.MAX_VALUE + "");
+		testCase.add(Long.MIN_VALUE + "");
 
-	int size = 100;
-	StringBuilder str = new StringBuilder();
-	for (int i = 0; i < size; i++) {
-	    str.append("naver");
-	}
-	testCase.add(str.toString());
-
-	return testCase;
-    }
-    
-    public static List<String> getNumberBetweenTestCase(List<Integer> value){
-	List<String> testCase = new LinkedList<>();
-	
-	int size = value.size();
-	
-	for(int i = 0; i < size; i++) {
-	    testCase.add((value.get(i) + 1) + "");
-	    testCase.add((value.get(i) - 1) + "");
-	}
-	
-	return testCase;
-    }
-
-    public static List<String> getNumberUnderUpperBetweenTestCase(List<Integer> value) {
-	List<String> testCase = new LinkedList<>();
-	int min, max;
-	int size = value.size();
-	int valueIndex = 0;
-
-	if (size > 0) {
-	    Collections.sort(value);
-	    min = value.get(0) - 10;
-	    max = value.get(size - 1) + 10;
-
-	    for (int i = min; i <= max; i++) {
-		if (valueIndex < size && value.get(valueIndex) == i) {
-		    valueIndex++;
-		} else {
-		    testCase.add(i + "");
+		int size = 100;
+		StringBuilder str = new StringBuilder();
+		for (int i = 0; i < size; i++) {
+			str.append("naver");
 		}
-	    }
+		testCase.add(str.toString());
+
+		return testCase;
 	}
 
-	return testCase;
-    }
+	public static List<String> getNumberBetweenTestCase(List<String> value) {
+		List<String> testCase = new LinkedList<>();
 
-    public static List<String> getAlpabetTestCase(String defValue) {
-	List<String> testCase = new LinkedList<>();
+		int size = value.size();
+		int temp;
+		for (int i = 0; i < size; i++) {
+			temp = Integer.parseInt(value.get(i));
+			testCase.add((temp + 1) + "");
+			testCase.add((temp - 1) + "");
+		}
 
-	for (char c = 'a'; c <= 'z'; c++) {
-	    testCase.add(Character.toString(c));
+		return testCase;
 	}
 
-	for (char c = 'A'; c <= 'Z'; c++) {
-	    testCase.add(Character.toString(c));
+	public static List<String> getNumberUnderUpperBetweenTestCase(List<String> value) {
+		List<String> testCase = new LinkedList<>();
+		int min, max;
+		int size = value.size();
+		int valueIndex = 0;
+
+		if (size > 0) {
+			Collections.sort(value);
+			min = Integer.parseInt(value.get(0));
+			max = Integer.parseInt(value.get(size - 1));
+			min -= min / 2;
+			max += max / 2;
+			
+			for (int i = min; i <= max; i++) {
+				if (valueIndex < size && Integer.parseInt(value.get(valueIndex)) == i) {
+					valueIndex++;
+				} else {
+					testCase.add(i + "");
+				}
+			}
+		}
+
+		return testCase;
 	}
 
-	return testCase;
-    }
+	public static List<String> getAlpabetTestCase() {
+		List<String> testCase = new LinkedList<>();
 
-    public static List<String> getBoolTestCase(String defValue) {
-	List<String> testCase = new LinkedList<>();
-	String value;
-	final String TRUE = "true";
-	final String FALSE = "false";
+		for (char c = 'a'; c <= 'z'; c++) {
+			testCase.add(Character.toString(c));
+		}
 
-	if (TRUE.equals(defValue)) {
-	    testCase.add(FALSE);
-	    value = FALSE;
-	} else {
-	    testCase.add(TRUE);
-	    value = TRUE;
+		for (char c = 'A'; c <= 'Z'; c++) {
+			testCase.add(Character.toString(c));
+		}
+
+		return testCase;
 	}
 
-	testCase.add("tttt");
-	testCase.add("fffff");
-	testCase.add("truefalse");
-	testCase.add("falsetrue");
-	testCase.add("TRUE");
-	testCase.add("FALSE");
-	testCase.add("t");
-	testCase.add("f");
-	testCase.add("T");
-	testCase.add("F");
-	testCase.add("0");
-	testCase.add("1");
+	public static List<String> getBoolTestCase() {
+		List<String> testCase = new LinkedList<>();
+		
+		testCase.add("tttt");
+		testCase.add("fffff");
+		testCase.add("truefalse");
+		testCase.add("falsetrue");
+		testCase.add("TRUE");
+		testCase.add("FALSE");
+		testCase.add("t");
+		testCase.add("f");
+		testCase.add("T");
+		testCase.add("F");
+		testCase.add("0");
+		testCase.add("1");
 
-	return testCase;
-    }
-
-    public static String request(String apiURL, List<NameValuePair> params) {
-	String result = null;
-	if (params == null) {
-	    params = new ArrayList<>();
+		return testCase;
 	}
 
-	try {
-	    HttpClient client = HttpClientBuilder.create().build();
-	    URI uri = new URI(apiURL);
-	    HttpPost post = new HttpPost(uri);
+	public static String request(String apiURL, List<NameValuePair> params) {
+		String result = null;
+		if (params == null) {
+			params = new ArrayList<>();
+		}
 
-	    UrlEncodedFormEntity ent = new UrlEncodedFormEntity(params, HTTP.UTF_8);
-	    post.setEntity(ent);
-	    HttpResponse httpPost = client.execute(post);
-	    HttpEntity entity = httpPost.getEntity();
-	    result = EntityUtils.toString(entity);
+		try {
+			HttpClient client = HttpClientBuilder.create().build();
+			URI uri = new URI(apiURL);
+			HttpPost post = new HttpPost(uri);
 
-	} catch (URISyntaxException e) {
-	    e.printStackTrace();
-	} catch (UnsupportedEncodingException e) {
-	    e.printStackTrace();
-	} catch (ClientProtocolException e) {
-	    e.printStackTrace();
-	} catch (IOException e) {
-	    e.printStackTrace();
+			UrlEncodedFormEntity ent = new UrlEncodedFormEntity(params, HTTP.UTF_8);
+			post.setEntity(ent);
+			HttpResponse httpPost = client.execute(post);
+			HttpEntity entity = httpPost.getEntity();
+			result = EntityUtils.toString(entity);
+
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return result;
 	}
-
-	return result;
-    }
 }
