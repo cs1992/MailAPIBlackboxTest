@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.mail.blackbox.factory.TestActionFactory;
 import com.mail.blackbox.util.ConstanceValue;
+import com.mail.blackbox.util.PageMove;
 import com.sun.corba.se.spi.orb.OperationFactory;
 
 /**
@@ -24,9 +25,11 @@ public class BlackboxTestController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
+	String path = "/index";
 	
 	System.out.println(ConstanceValue.TEST_CONTROLLER);
-	TestActionFactory.getOptionTestAction().execute(request, response);
+	path = TestActionFactory.getOptionTestAction().execute(request, response);
+	PageMove.forward(path, request, response);
 	
     }
 

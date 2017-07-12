@@ -5,8 +5,10 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.catalina.tribes.util.Arrays;
+
 import com.mail.blackbox.action.Action;
-import com.mail.blackbox.model.Result;
+import com.mail.blackbox.model.TestFault;
 import com.mail.blackbox.option.service.OptionListDefaultTestServiceImpl;
 import com.mail.blackbox.util.ConstanceValue;
 
@@ -15,11 +17,14 @@ public class OptionTestAction implements Action {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
 	
-	List<Result> result = OptionListDefaultTestServiceImpl.getOptionListDefaultTestServiceImpl().startTest();
+	List<TestFault> result = OptionListDefaultTestServiceImpl.getOptionListDefaultTestServiceImpl().startIntegrationTest();
+//	
+//	System.out.println("result size : " + result.size());
+//	System.out.println(Arrays.toString(result.toArray()));
 	
-	System.out.println(result.size());
+	request.setAttribute(ConstanceValue.OPTION_TEST_RESULT_VALUE, result);
 	
-	return ConstanceValue.OPTION_TEST_RESULT;
+	return ConstanceValue.TEST_RESULT;
     }
 
 }

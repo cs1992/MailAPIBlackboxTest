@@ -6,12 +6,11 @@ import org.apache.http.NameValuePair;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mail.blackbox.model.Param;
-import com.mail.blackbox.model.Result;
+import com.mail.blackbox.model.TestFault;
+import com.mail.blackbox.util.ConstanceValue.TestType;
 
-public interface OptionDefaultTestService {
+public interface OptionDefaultTestService extends TestService {
 
-    	ObjectMapper mapper = new ObjectMapper();
-    
     
 	Param getCurrentOption();
 	
@@ -19,11 +18,13 @@ public interface OptionDefaultTestService {
 	
 	void setOption(List<NameValuePair> params);
 	
-	List<Result> diffOption(Param originOption, Param afterOption, String testName, List<NameValuePair> params);
+	List<TestFault> diffInvalidOption(Param originOption, Param afterOption, String testName, List<NameValuePair> params, TestType testType);
 	
-	List<Result> startTest();
+	List<TestFault> diffValidOption(Param originOption, Param afterOption, String testName, List<NameValuePair> params);
 	
-	List<Result> singleParamTest();
+	List<TestFault> startIntegrationTest();
 	
-	List<Result> multiParamTest();
+	List<TestFault> singleParamTest();
+	
+	List<TestFault> multiParamTest(TestType testType);
 }
