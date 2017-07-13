@@ -21,7 +21,7 @@ public class OptionSetConstanceValue {
 		public String param;
 		public String defValue;
 		private final ArrayList<String> ACTION_AFTER_DELETE_LIST = new ArrayList<>(Arrays.asList("0", "1", "2"));
-		private final ArrayList<String> FIRST_FOLDER_SN_LIST = new ArrayList<>();
+//		private final ArrayList<String> FIRST_FOLDER_SN_LIST = getFolderSN();
 		private final ArrayList<String> FONT_NAME_LIST = new ArrayList<>(Arrays.asList("dotum", "Nanumgothic"));
 
 		OptionReadSetParam(String param, String defValue) {
@@ -41,7 +41,7 @@ public class OptionSetConstanceValue {
 				if(isInvalid){
 					
 				} else {
-					
+				    list = ACTION_AFTER_DELETE_LIST;
 				}
 				break;
 			case FIRST_FOLDER_SN:
@@ -69,12 +69,14 @@ public class OptionSetConstanceValue {
 				
 				
 			}
+
+			list.addAll(UtilFunction.getCommonTestCase());
 			
 			return list;
 		}
 	}
 
-	public static enum OptionListSetParam {
+	public enum OptionListSetParam {
 		DIVIDE_MODE("divideMode", "L"),
 
 		HIDE_IMAGE_USE("hideImageUse", "false"), LIST_FONT_SIZE("listFontSize", "9"),
@@ -91,6 +93,8 @@ public class OptionSetConstanceValue {
 
 		public String param;
 		public String defValue;
+		
+		
 		private final ArrayList<String> LIST_NUM_LIST = new ArrayList<String>(
 				Arrays.asList("8", "9", "10", "11", "12"));
 		private final ArrayList<String> DIVIDE_MODE_LIST = new ArrayList<String>(Arrays.asList("L", "H", "V"));
@@ -105,6 +109,7 @@ public class OptionSetConstanceValue {
 
 		public ArrayList<String> getTestValues(OptionListSetParam param, TestType testType) {
 			ArrayList<String> list = new ArrayList<>();
+			
 			boolean isInvalid = false;
 			if (testType == TestType.INVALID_TYPE) {
 				isInvalid = true;
@@ -157,6 +162,8 @@ public class OptionSetConstanceValue {
 			default:
 
 			}
+			
+			list.addAll(UtilFunction.getCommonTestCase());
 
 			return list;
 		}
@@ -446,5 +453,49 @@ public class OptionSetConstanceValue {
 			this.param = param;
 			this.defValue = defValue;
 		}
+	}
+	
+	public enum OptionFolderListParam{
+	    FOLDER_DEPTH("folderDepth"), FOLDER_NAME("folderName"),
+	    
+	    FOLDER_SN("folderSN"), FOLDER_ORDER("folderOrder"),
+	    
+	    FOLDER_TYPE("folderType"), HAS_CHILD_FOLDER("hasChildFolder"),
+	    
+	    IDOMAIN("idomain"), MAIL_COUNT("mailCount"),
+	    
+	    PARENT_FOLDER_SN("parentFolderSN"), UNREAD_MAIL_COUNT("unreadMailCount"),
+	    
+	    USEAGE("usage");
+	    
+	    private String param;
+	    
+	    private OptionFolderListParam(String param) {
+		this.param = param;
+	    }
+	    
+	    public String getParam() {
+		return param;
+	    }
+	}
+	
+	public enum OptionFolderParam{
+	    FOLDER_LIST("folderList"), HIDE_SPAM_FOLDER("hideSpamFolder"),
+	    
+	    HUMAN_READABLE("humanReadable"), I_DOMAIN_USE("iDomainUse"),
+	    
+	    LAST_MAIL_SN("lastMailSN"), TOTAL_SIZE("totalSize"),
+	    
+	    TOTAL_SIZE_MB("totalSizeMB"), TOTAL_UNREAD_MAIL("totalUnreadMail");
+	    
+	    private String param;
+	    
+	    private OptionFolderParam(String param) {
+		this.param = param;
+	    }
+	    
+	    public String getParam() {
+		return param;
+	    }
 	}
 }

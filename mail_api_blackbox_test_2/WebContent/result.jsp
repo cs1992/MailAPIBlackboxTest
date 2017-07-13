@@ -20,7 +20,7 @@
 <title>테스트결과</title>
 </head>
 <body>
-	<center>
+total : <%=size %><br>
 		<%
 			Iterator<TestFault> it = result.iterator();
 				while (it.hasNext()) {
@@ -30,7 +30,7 @@
 			}
 		%>
 
-	</center>
+
 
 </body>
 </html>

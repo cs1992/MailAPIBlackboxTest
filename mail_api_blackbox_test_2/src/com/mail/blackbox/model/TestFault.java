@@ -1,5 +1,7 @@
 package com.mail.blackbox.model;
 
+import java.util.Random;
+
 public class TestFault {
     private String apiName;
     private String testName;
@@ -66,7 +68,8 @@ public class TestFault {
     
     @Override
     public int hashCode() {
-    	int hash = 0;
+//	Random random = new Random();
+    	int hash = 3;//random.nextInt() / 2;
     	int len = testName.length();
     	
     	for(int i = 0; i < len; i++){
@@ -83,8 +86,10 @@ public class TestFault {
     	for(int i = 0; i < len; i++){
     		hash += testValue.charAt(i);
     	}
-    	
-    	hash *= 31 + (testName.charAt(0) + paramName.charAt(0) + testValue.charAt(0));
+    	if(testName.length() !=0 && paramName.length() != 0 && testValue.length() != 0) {
+    	    hash *= 31 + (testName.charAt(0) + paramName.charAt(0) + testValue.charAt(0));
+    	    
+    	}
     	
     	return hash;
     }

@@ -66,110 +66,14 @@ public class OptionReadDefaultTestServiceImple implements OptionDefaultTestServi
 		
 	}
 
+	@Override
+	public void setTestCase() {
+	    // TODO Auto-generated method stub
+	    
+	}
+
 	
 
 
-//    private static OptionDefaultTestService optionReadDefaultTestServiceImple;
-//    private String apiURL;
-//    private Param pasing = new OptionReadGetParam();
-//
-//    static {
-//	optionReadDefaultTestServiceImple = new OptionReadDefaultTestServiceImple();
-//    }
-//
-//    private OptionReadDefaultTestServiceImple() {
-////	mapper = new ObjectMapper();
-//	mapper.configure(Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
-//    }
-//
-//    @Override
-//    public Param getCurrentOption() {
-//	apiURL = ConstanceValue.API_URL + OptionAPI.READ_GET.api;
-//
-//	return pasingResponse(UtilFunction.request(apiURL, null));
-//    }
-//
-//    @Override
-//    public void setOption(List<NameValuePair> params) {
-//	apiURL = ConstanceValue.API_URL + OptionAPI.READ_SET.api;
-//
-//    }
-//
-//    @Override
-//    public List<TestFault> diffInvalidOption(Param originOption, Param afterOption, String testName, List<NameValuePair> params) {
-//	
-//	return null;
-//    }
-//
-//    @Override
-//    public List<TestFault> startIntegrationTest() {
-//
-//	return null;
-//    }
-//
-//    @Override
-//    public Param pasingResponse(String response) {
-//	HashMap<String, Object> map = new HashMap<>();
-//
-//	try {
-//	    map = mapper.readValue(response, new TypeReference<HashMap<String, Object>>() {
-//	    });
-//	    
-//	    pasing.setParams(map);
-//	} catch (JsonParseException e) {
-//	    // TODO Auto-generated catch block
-//	    e.printStackTrace();
-//	} catch (JsonMappingException e) {
-//	    // TODO Auto-generated catch block
-//	    e.printStackTrace();
-//	} catch (IOException e) {
-//	    // TODO Auto-generated catch block
-//	    e.printStackTrace();
-//	}
-//	return pasing;
-//    }
-//
-//    @Override
-//    public List<TestFault> singleParamTest() {
-//
-//	Param originValue = getCurrentOption();
-//	List<NameValuePair> params;
-//	List<String> values;
-//	for (OptionReadSetParam param : OptionReadSetParam.values()) {
-//	    
-//	    switch(param) {
-//	    case ACTION_AFTER_DELETE:
-//		
-//		break;
-//	    case FIRST_FOLDER_SN:
-//		
-//		break;
-//	    case FONT_NAME:
-//		
-//		break;
-//	    case POPUP_READ:
-//		
-//		break;
-//	    default:
-//		
-//		
-//	    }
-//
-//	}
-//	return null;
-//    }
-//
-//    @Override
-//    public List<TestFault> multiParamTest() {
-//
-//	return null;
-//    }
-//
-//    @Override
-//    public List<TestFault> diffValidOption(Param originOption, Param afterOption, String testName,
-//	    List<NameValuePair> params) {
-//	// TODO Auto-generated method stub
-//	return null;
-//    }
 
 }

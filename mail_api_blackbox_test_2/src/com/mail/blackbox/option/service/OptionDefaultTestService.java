@@ -22,10 +22,11 @@ public interface OptionDefaultTestService extends TestService {
 	
 	void diffOption(Param originOption, Param afterOption, TestName testName, List<NameValuePair> params, TestType testType);
 	
-	
 	HashSet<TestFault> startIntegrationTest();
 	
 	void singleParamTest(TestType testType);
 	
 	void multiParamTest(TestType testType);
+	
+	void setTestCase();
 }

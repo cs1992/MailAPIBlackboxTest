@@ -18,16 +18,15 @@ public class OptionTestAction implements Action {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 
+	    	long start = System.currentTimeMillis();
 		HashSet<TestFault> result = OptionListDefaultTestServiceImpl.getOptionListDefaultTestServiceImpl()
 				.startIntegrationTest();
+		System.out.println((System.currentTimeMillis() - start) / 1000);
 		
-		//
-		// System.out.println("result size : " + result.size());
-		// System.out.println(Arrays.toString(result.toArray()));
-
 		request.setAttribute(ConstanceValue.OPTION_TEST_RESULT_VALUE, result);
 
 		return ConstanceValue.TEST_RESULT;
 	}
 
 }
+
