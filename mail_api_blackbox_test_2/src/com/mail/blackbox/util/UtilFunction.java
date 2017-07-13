@@ -26,6 +26,7 @@ import com.mail.blackbox.option.service.OptionFolderDefaultTestServiceImpl;
 
 public class UtilFunction {
 
+    
     public static List<String> getCommonTestCase() {
 	List<String> testCase = new LinkedList<>();
 
